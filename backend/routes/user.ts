@@ -3,7 +3,7 @@ const userController = require("../controllers/user");
 
 const router = express.Router();
 
-router.get("/all-data", userController.getAllData);
+router.get("/", userController.getAllData);
 
 router.post("/new-data", userController.postNewData);
 

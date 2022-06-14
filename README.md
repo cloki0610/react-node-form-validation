@@ -1,9 +1,10 @@
 # Running locally
 
-1. open the terminal and access the backend folder
-2. use "tsc" to complie and run the backend application
-3. access the frontend folder
-4. use "npm start" to run the React application
+1. Download all the files
+2. open the terminal and access the backend folder
+3. use "tsc" command to complie and use "npm start" to run the backend application
+4. access the frontend folder
+5. use "npm start" command to run the React application
 
 # Deploy
 
