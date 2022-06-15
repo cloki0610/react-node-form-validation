@@ -44,17 +44,17 @@ const FormContainer: React.FC = () => {
     <Container>
       <FormStepOne
         toggleHandler={() => setToggle1((prevToggle) => !prevToggle)}
-        onSubmit={submitStepOne}
+        submitHandler={submitStepOne}
         toggle={toggle1}
       />
       <FormStepTwo
         toggleHandler={() => setToggle2((prevToggle) => !prevToggle)}
-        onSubmit={submitStepTwo}
+        submitHandler={submitStepTwo}
         toggle={toggle2}
       />
       <FormStepThree
         toggleHandler={() => setToggle3((prevToggle) => !prevToggle)}
-        onSubmit={submitFormData}
+        submitHandler={submitFormData}
         toggle={toggle3}
       />
     </Container>

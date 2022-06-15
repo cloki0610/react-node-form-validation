@@ -5,7 +5,7 @@ import { FormProp } from "./FormType";
 
 const FormStepOne: React.FC<FormProp> = ({
   toggleHandler,
-  onSubmit,
+  submitHandler,
   toggle,
 }) => {
   return !toggle ? (
@@ -13,7 +13,7 @@ const FormStepOne: React.FC<FormProp> = ({
   ) : (
     <div>
       <FormHeader title="Step 1: Your Details" onToggle={toggleHandler} />
-      <form onSubmit={onSubmit}>
+      <form onSubmit={submitHandler}>
         <Button type="submit">Next &gt;</Button>
       </form>
     </div>
