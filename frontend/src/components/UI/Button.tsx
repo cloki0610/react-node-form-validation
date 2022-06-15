@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 const Button = styled.button`
-  width: 8rem;
-  height: 2rem;
-  font-size: 1rem;
+  width: 130px;
+  height: 30px;
+  font-size: 16px;
   border: none;
   border-radius: 8px;
   background: linear-gradient(#4e54c8, #8f94fb);
