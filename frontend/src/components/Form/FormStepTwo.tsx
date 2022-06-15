@@ -1,7 +1,7 @@
 import React from "react";
 import FormHeader from "./FormHeader";
 import Button from "../UI/Button";
-import { FormProp } from "./FromType";
+import { FormProp } from "./FormType";
 
 const FormStepTwo: React.FC<FormProp> = ({ onToggle, onSubmit, toggle }) => {
   return !toggle ? (

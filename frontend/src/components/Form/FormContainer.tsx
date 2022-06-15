@@ -3,6 +3,19 @@ import styled from "styled-components";
 import FormStepOne from "./FormStepOne";
 import FormStepThree from "./FormStepThree";
 import FormStepTwo from "./FormStepTwo";
+import { FormInput } from "./FormType";
+
+const initFormInputState = {
+  firstName: "",
+  surName: "",
+  email: "",
+  phoneNumber: "",
+  gender: "",
+  year: "",
+  month: "",
+  day: "",
+  comments: "",
+};
 
 const Container = styled.div`
   display: grid;
@@ -16,7 +29,7 @@ const Container = styled.div`
 `;
 
 const FormContainer: React.FC = () => {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState<FormInput>(initFormInputState);
   const [toggle1, setToggle1] = useState<boolean>(true);
   const [toggle2, setToggle2] = useState<boolean>(false);
   const [toggle3, setToggle3] = useState<boolean>(false);
