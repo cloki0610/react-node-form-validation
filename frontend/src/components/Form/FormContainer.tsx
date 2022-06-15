@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import FormStepOne from "./FormStepOne";
 import FormStepThree from "./FormStepThree";
@@ -16,11 +16,28 @@ const Container = styled.div`
 `;
 
 const FormContainer: React.FC = () => {
+  const [formData, setFormData] = useState({});
+  const [toggle1, setToggle1] = useState<boolean>(true);
+  const [toggle2, setToggle2] = useState<boolean>(false);
+  const [toggle3, setToggle3] = useState<boolean>(false);
+
   return (
     <Container>
-      <FormStepOne />
-      <FormStepTwo />
-      <FormStepThree />
+      <FormStepOne
+        onToggle={() => setToggle1((prevToggle) => !prevToggle)}
+        onSubmit={() => {}}
+        toggle={toggle1}
+      />
+      <FormStepTwo
+        onToggle={() => setToggle2((prevToggle) => !prevToggle)}
+        onSubmit={() => {}}
+        toggle={toggle2}
+      />
+      <FormStepThree
+        onToggle={() => setToggle3((prevToggle) => !prevToggle)}
+        onSubmit={() => {}}
+        toggle={toggle3}
+      />
     </Container>
   );
 };
