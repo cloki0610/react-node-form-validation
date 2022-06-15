@@ -3,13 +3,19 @@ import FormHeader from "./FormHeader";
 import Button from "../UI/Button";
 import { FormProp } from "./FormType";
 
-const FormStepThree: React.FC<FormProp> = ({ onToggle, onSubmit, toggle }) => {
+const FormStepThree: React.FC<FormProp> = ({
+  toggleHandler,
+  onSubmit,
+  toggle,
+}) => {
   return !toggle ? (
-    <FormHeader title="Step 3: Final Comments" toggler={onToggle} />
+    <FormHeader title="Step 3: Final Comments" onToggle={toggleHandler} />
   ) : (
     <div>
-      <FormHeader title="Step 3: Final Comments" toggler={onToggle} />
-      <Button onClick={onSubmit}>Next &gt;</Button>
+      <FormHeader title="Step 3: Final Comments" onToggle={toggleHandler} />
+      <form onSubmit={onSubmit}>
+        <Button type="submit">Next &gt;</Button>
+      </form>
     </div>
   );
 };

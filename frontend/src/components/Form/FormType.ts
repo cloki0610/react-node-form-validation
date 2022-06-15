@@ -1,5 +1,5 @@
 export type FormProp = {
-  onToggle: () => void;
+  toggleHandler: () => void;
   onSubmit: () => void;
   toggle: boolean;
 };

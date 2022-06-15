@@ -15,12 +15,12 @@ const Header = styled.div`
   }
 `;
 
-const FormHeader: React.FC<{ title: string; toggler: () => void }> = ({
+const FormHeader: React.FC<{ title: string; onToggle: () => void }> = ({
   title,
-  toggler,
+  onToggle,
 }) => {
   return (
-    <Header onClick={toggler}>
+    <Header onClick={onToggle}>
       <h1>{title}</h1>
     </Header>
   );

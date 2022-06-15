@@ -29,26 +29,32 @@ const Container = styled.div`
 `;
 
 const FormContainer: React.FC = () => {
+  const [stepOneData, setStepOneData] = useState();
+  const [stepTwoData, setStepTwoData] = useState();
   const [formData, setFormData] = useState<FormInput>(initFormInputState);
   const [toggle1, setToggle1] = useState<boolean>(true);
   const [toggle2, setToggle2] = useState<boolean>(false);
   const [toggle3, setToggle3] = useState<boolean>(false);
 
+  const submitStepOne = () => {};
+  const submitStepTwo = () => {};
+  const submitFormData = () => {};
+
   return (
     <Container>
       <FormStepOne
-        onToggle={() => setToggle1((prevToggle) => !prevToggle)}
-        onSubmit={() => {}}
+        toggleHandler={() => setToggle1((prevToggle) => !prevToggle)}
+        onSubmit={submitStepOne}
         toggle={toggle1}
       />
       <FormStepTwo
-        onToggle={() => setToggle2((prevToggle) => !prevToggle)}
-        onSubmit={() => {}}
+        toggleHandler={() => setToggle2((prevToggle) => !prevToggle)}
+        onSubmit={submitStepTwo}
         toggle={toggle2}
       />
       <FormStepThree
-        onToggle={() => setToggle3((prevToggle) => !prevToggle)}
-        onSubmit={() => {}}
+        toggleHandler={() => setToggle3((prevToggle) => !prevToggle)}
+        onSubmit={submitFormData}
         toggle={toggle3}
       />
     </Container>
