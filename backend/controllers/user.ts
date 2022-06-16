@@ -13,24 +13,24 @@ export const postNewData = async (
 ) => {
   // Handle validation result
   const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    const error: ErrorWithStatus = new Error(
-      "Invalid input, please check and try again."
-    );
-    error.statusCode = 422;
-    throw error;
-  }
-  // Get form data
-  const firstName = req.body.formData.firstName;
-  const surName = req.body.formData.surName;
-  const email = req.body.formData.email;
-  const phoneNumber = req.body.formData.phoneNumber;
-  const gender = req.body.formData.gender;
-  const day = +req.body.formData.day;
-  const month = +req.body.formData.month;
-  const year = +req.body.formData.year;
-  const comments = req.body.formData.comments;
   try {
+    if (!errors.isEmpty()) {
+      const error: ErrorWithStatus = new Error(
+        "Invalid input, please check and try again."
+      );
+      error.statusCode = 422;
+      throw error;
+    }
+    // Get form data
+    const firstName = req.body.firstName;
+    const surName = req.body.surName;
+    const email = req.body.email;
+    const phoneNumber = req.body.phoneNumber;
+    const gender = req.body.gender;
+    const day = +req.body.day;
+    const month = +req.body.month;
+    const year = +req.body.year;
+    const comments = req.body.comments;
     await User.create({
       firstName: firstName,
       surName: surName,

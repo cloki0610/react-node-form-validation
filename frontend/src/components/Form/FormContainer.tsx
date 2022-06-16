@@ -114,7 +114,7 @@ const FormContainer: React.FC = () => {
     setToggle2(false);
     setToggle3(true);
   };
-  const submitFormData = (event: React.SyntheticEvent) => {
+  const submitFormData = async (event: React.SyntheticEvent) => {
     event.preventDefault();
     // validate step 1 & 2
     const validate1 = validateStepOne();
@@ -150,7 +150,13 @@ const FormContainer: React.FC = () => {
     setToggle2(false);
     setToggle3(false);
     // Send request
-    console.log(formInput);
+    await fetch("", {
+      method: "POST",
+      body: JSON.stringify(formInput),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   };
 
   return (

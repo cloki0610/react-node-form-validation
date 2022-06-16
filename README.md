@@ -10,5 +10,5 @@
 
 1. Complile the backend files to javascript
 2. Deploy the backend application to your host
-3. Get the API url and replace the local url in React application
+3. Get the API url and replace the url in /src/components/Form/FormContainer.tsx, line 153
 4. build and deploy the React application
