@@ -1,20 +1,9 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import FormStepOne from "./FormStepOne";
 import FormStepThree from "./FormStepThree";
 import FormStepTwo from "./FormStepTwo";
+import Container from "../UI/Container";
 import { FormInput, StepOneInput, StepTwoInput } from "./FormType";
-
-const Container = styled.div`
-  display: grid;
-  grid-template-columns: 1 0;
-  gap: 5px;
-  padding: 5px;
-  border-radius: 8px;
-  background-color: #ffffff;
-  width: 600px;
-  height: auto;
-`;
 
 const FormContainer: React.FC = () => {
   const [stepOneData, setStepOneData] = useState<StepOneInput>({
@@ -96,6 +85,7 @@ const FormContainer: React.FC = () => {
     setToggle2(true);
     setToggle3(false);
   };
+
   const submitStepTwo = (event: React.SyntheticEvent) => {
     event.preventDefault();
     const validate1 = validateStepOne();
@@ -114,6 +104,7 @@ const FormContainer: React.FC = () => {
     setToggle2(false);
     setToggle3(true);
   };
+
   const submitFormData = async (event: React.SyntheticEvent) => {
     event.preventDefault();
     // validate step 1 & 2
@@ -138,25 +129,23 @@ const FormContainer: React.FC = () => {
       setToggle3(true);
       return;
     }
+    // Merge all form data
     const formInput: FormInput = {
       ...stepOneData,
       ...stepTwoData,
       comments,
     };
-    setStepOneError("");
-    setStepTwoError("");
-    setStepThreeError("");
-    setToggle1(true);
-    setToggle2(false);
-    setToggle3(false);
     // Send request
-    await fetch("", {
-      method: "POST",
-      body: JSON.stringify(formInput),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    await fetch(
+      "https://8080-cloki0610-fvtest-rygcn4rjqdi.ws-eu47.gitpod.io/new-data",
+      {
+        method: "POST",
+        body: JSON.stringify(formInput),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
   };
 
   return (

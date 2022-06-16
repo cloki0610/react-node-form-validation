@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const Header = styled.div`
@@ -15,15 +14,4 @@ const Header = styled.div`
   }
 `;
 
-const FormHeader: React.FC<{ title: string; onToggle: () => void }> = ({
-  title,
-  onToggle,
-}) => {
-  return (
-    <Header onClick={onToggle}>
-      <h1>{title}</h1>
-    </Header>
-  );
-};
-
-export default FormHeader;
+export default Header;
