@@ -3,19 +3,7 @@ import styled from "styled-components";
 import FormStepOne from "./FormStepOne";
 import FormStepThree from "./FormStepThree";
 import FormStepTwo from "./FormStepTwo";
-import { FormInput } from "./FormType";
-
-const initFormInputState = {
-  firstName: "",
-  surName: "",
-  email: "",
-  phoneNumber: "",
-  gender: "",
-  year: "",
-  month: "",
-  day: "",
-  comments: "",
-};
+import { FormInput, StepOneInput, StepTwoInput } from "./FormType";
 
 const Container = styled.div`
   display: grid;
@@ -29,16 +17,47 @@ const Container = styled.div`
 `;
 
 const FormContainer: React.FC = () => {
-  const [stepOneData, setStepOneData] = useState();
-  const [stepTwoData, setStepTwoData] = useState();
-  const [formData, setFormData] = useState<FormInput>(initFormInputState);
+  const [stepOneData, setStepOneData] = useState<StepOneInput>({
+    firstName: "",
+    surName: "",
+    email: "",
+  });
+  const [stepTwoData, setStepTwoData] = useState<StepTwoInput>({
+    phoneNumber: "",
+    gender: "",
+    year: "",
+    month: "",
+    day: "",
+  });
+  const [comments, setComments] = useState<string>("");
   const [toggle1, setToggle1] = useState<boolean>(true);
   const [toggle2, setToggle2] = useState<boolean>(false);
   const [toggle3, setToggle3] = useState<boolean>(false);
 
-  const submitStepOne = () => {};
-  const submitStepTwo = () => {};
-  const submitFormData = () => {};
+  const submitStepOne = (event: React.SyntheticEvent) => {
+    event.preventDefault();
+    console.log(
+      `${stepOneData.firstName}, ${stepOneData.surName}, ${stepOneData.email}`
+    );
+  };
+  const submitStepTwo = (event: React.SyntheticEvent) => {
+    event.preventDefault();
+    console.log(
+      `${stepOneData.firstName}, ${stepOneData.surName}, ${stepOneData.email}`
+    );
+    console.log(
+      `${stepTwoData.phoneNumber}, ${stepTwoData.gender}, ${stepTwoData.year}-${stepTwoData.month}-${stepTwoData.day}`
+    );
+  };
+  const submitFormData = (event: React.SyntheticEvent) => {
+    event.preventDefault();
+    const formInput: FormInput = {
+      ...stepOneData,
+      ...stepTwoData,
+      comments,
+    };
+    console.log(formInput);
+  };
 
   return (
     <Container>
@@ -46,16 +65,36 @@ const FormContainer: React.FC = () => {
         toggleHandler={() => setToggle1((prevToggle) => !prevToggle)}
         submitHandler={submitStepOne}
         toggle={toggle1}
+        onStepOneChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+          setStepOneData((prevState) => ({
+            ...prevState,
+            [event.target.name]: event.target.value,
+          }))
+        }
+        stepOneData={stepOneData}
       />
       <FormStepTwo
         toggleHandler={() => setToggle2((prevToggle) => !prevToggle)}
         submitHandler={submitStepTwo}
         toggle={toggle2}
+        onStepTwoChange={(
+          event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+        ) =>
+          setStepTwoData((prevState) => ({
+            ...prevState,
+            [event.target.name]: event.target.value,
+          }))
+        }
+        stepTwoData={stepTwoData}
       />
       <FormStepThree
         toggleHandler={() => setToggle3((prevToggle) => !prevToggle)}
         submitHandler={submitFormData}
         toggle={toggle3}
+        onCommentsChange={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
+          setComments(event.target.value)
+        }
+        commentsValue={comments}
       />
     </Container>
   );

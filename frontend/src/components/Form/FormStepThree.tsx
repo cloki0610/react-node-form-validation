@@ -5,10 +5,17 @@ import Form from "../UI/Form";
 import Button from "../UI/Button";
 import { FormProp } from "./FormType";
 
-const FormStepThree: React.FC<FormProp> = ({
+interface stepThreeProp extends FormProp {
+  onCommentsChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  commentsValue: string;
+}
+
+const FormStepThree: React.FC<stepThreeProp> = ({
   toggleHandler,
   submitHandler,
   toggle,
+  onCommentsChange,
+  commentsValue,
 }) => {
   return !toggle ? (
     <FormHeader title="Step 3: Final Comments" onToggle={toggleHandler} />
@@ -18,7 +25,13 @@ const FormStepThree: React.FC<FormProp> = ({
       <Form onSubmit={submitHandler}>
         <div className="comments">
           <label htmlFor="comments">Comments</label>
-          <textarea id="comments" name="comments" rows={5}></textarea>
+          <textarea
+            id="comments"
+            name="comments"
+            rows={5}
+            onChange={onCommentsChange}
+            value={commentsValue}
+          />
         </div>
         <Button type="submit">Next &gt;</Button>
       </Form>

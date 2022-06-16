@@ -1,8 +1,22 @@
-export type FormProp = {
+export interface FormProp {
   toggleHandler: () => void;
-  submitHandler: () => void;
+  submitHandler: (event: React.SyntheticEvent) => void;
   toggle: boolean;
-};
+}
+
+export interface StepOneInput {
+  firstName: string;
+  surName: string;
+  email: string;
+}
+
+export interface StepTwoInput {
+  phoneNumber: string;
+  gender: string;
+  year: string;
+  month: string;
+  day: string;
+}
 
 export interface FormInput {
   firstName: string;
