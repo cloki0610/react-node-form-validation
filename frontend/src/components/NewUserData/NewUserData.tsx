@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import FormStepOne from "./FormStepOne";
 import FormStepThree from "./FormStepThree";
 import FormStepTwo from "./FormStepTwo";
@@ -6,6 +7,7 @@ import Container from "../UI/Container";
 import { FormInput, StepOneInput, StepTwoInput } from "./FormType";
 
 const FormContainer: React.FC = () => {
+  const navigate = useNavigate();
   const [stepOneData, setStepOneData] = useState<StepOneInput>({
     firstName: "",
     surName: "",
@@ -136,16 +138,14 @@ const FormContainer: React.FC = () => {
       comments,
     };
     // Send request
-    await fetch(
-      "https://8080-cloki0610-fvtest-rygcn4rjqdi.ws-eu47.gitpod.io/new-data",
-      {
-        method: "POST",
-        body: JSON.stringify(formInput),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    await fetch("", {
+      method: "POST",
+      body: JSON.stringify(formInput),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    navigate("/all-data", { replace: true });
   };
 
   return (

@@ -10,5 +10,7 @@
 
 1. Complile the backend files to javascript
 2. Deploy the backend application to your host
-3. Get the API url and replace the url in /src/components/Form/FormContainer.tsx, line 153
-4. build and deploy the React application
+3. Get the API url
+4. Replace the url with "/new-data" as endpoint in /src/components/NewUserData/NewUserData.tsx, line 141
+5. Replace the url in /src/components/AllUserData/AllUserData.tsx, line 13
+6. build and deploy the React application

@@ -30,3 +30,14 @@ export interface FormInput {
   day: string;
   comments: string;
 }
+
+export interface UserData {
+  id: number;
+  firstName: string;
+  surName: string;
+  email: string;
+  phoneNumber: string;
+  gender: string;
+  dateOfBirth: string;
+  comments: string;
+}
