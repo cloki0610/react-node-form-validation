@@ -14,6 +14,7 @@ const FormStepThree: React.FC<stepThreeProp> = ({
   toggleHandler,
   submitHandler,
   toggle,
+  error,
   onCommentsChange,
   commentsValue,
 }) => {
@@ -22,6 +23,7 @@ const FormStepThree: React.FC<stepThreeProp> = ({
   ) : (
     <FormBody>
       <FormHeader title="Step 3: Final Comments" onToggle={toggleHandler} />
+      <p style={{ color: "red", textAlign: "center" }}>{error}</p>
       <Form onSubmit={submitHandler}>
         <div className="comments">
           <label htmlFor="comments">Comments</label>

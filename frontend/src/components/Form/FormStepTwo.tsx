@@ -16,6 +16,7 @@ const FormStepTwo: React.FC<stepTwoProp> = ({
   toggleHandler,
   submitHandler,
   toggle,
+  error,
   onStepTwoChange,
   stepTwoData,
 }) => {
@@ -24,6 +25,7 @@ const FormStepTwo: React.FC<stepTwoProp> = ({
   ) : (
     <FormBody>
       <FormHeader title="Step 2: More Comments" onToggle={toggleHandler} />
+      <p style={{ color: "red", textAlign: "center" }}>{error}</p>
       <Form onSubmit={submitHandler}>
         <div>
           <label htmlFor="phoneNumber">Telephone Number</label>

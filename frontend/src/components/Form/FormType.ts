@@ -2,6 +2,7 @@ export interface FormProp {
   toggleHandler: () => void;
   submitHandler: (event: React.SyntheticEvent) => void;
   toggle: boolean;
+  error: string;
 }
 
 export interface StepOneInput {

@@ -14,6 +14,7 @@ const FormStepOne: React.FC<stepOneProp> = ({
   toggleHandler,
   submitHandler,
   toggle,
+  error,
   onStepOneChange,
   stepOneData,
 }) => {
@@ -22,6 +23,7 @@ const FormStepOne: React.FC<stepOneProp> = ({
   ) : (
     <FormBody>
       <FormHeader title="Step 1: Your Details" onToggle={toggleHandler} />
+      <p style={{ color: "red", textAlign: "center" }}>{error}</p>
       <Form onSubmit={submitHandler}>
         <div>
           <label htmlFor="firstName">First Name</label>
