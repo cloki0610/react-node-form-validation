@@ -1,3 +1,16 @@
+# Project description
+
+## Front-end
+This project is two page application create by react and style by styled component library.
+The fist page("/") is an input form gather 3 parts of information and send all input data into back-end endpoint.
+The second page("/all-data") will display all user input store in back-end sqlite in-memory data base.
+The front-end component include basic input validation and show the error message if input is invalid.
+
+## Back-end
+This back-end service provide two endpoint to accept user input and response with all user input store in sqlite database.
+The first endpoint ("/") will accept a GET request and return all data store in the database.
+The second endpoint ("/new-data") will accept a POST request and return a message with status code as response.
+
 # Running locally
 
 1. Download all the files
